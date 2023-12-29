@@ -46,8 +46,8 @@ def gerar_matrix():
            matrix.append(vetor2)
            matrix.append(vetor3)
           
-           print(matrix2)
-           array=np.aray(matrix2)
+           print(matrix)
+           array=np.array(matrix)
            print(array)
       elif ordem==4:
            for i in range(0,4):
@@ -263,8 +263,8 @@ def gerar_matrix2():
     
 
 
-gerar_matrix() 
-gerar_matrix2()
+#gerar_matrix() 
+#gerar_matrix2()
 
 
 igualdade=[]
@@ -332,30 +332,36 @@ def igualdade_matrix2():
         print('numero de igualdades invalidos')
     
 
-igualdade_matrix()
-igualdade_matrix2()
+#igualdade_matrix()
+#igualdade_matrix2()
 
 
-def equacao_linear(array,array2,igualdade,igualdade2):
+def equacao_linear(array,igualdade):
     print('resultado do sistema de equação')
     res=np.linalg.solve(array,igualdade)
-    res2=np.linalg.solve(array2,igualdade2)
     print(res)
-    print(res2)
     print('o determimante da matrix ')
     deter=np.linalg.det(array)
     print(deter)
+    
+    
+def equacao_linear2(array2,igualdade2):
+    print('resultado do sistema de equação')
+    res2=np.linalg.solve(array2,igualdade2)
+    print(res2)
+    print('o determimante da matrix ')
     deter2=np.linalg.det(array2)
     print(deter2)
-    
-
 
     
     
     
-equacao_linear(array,array2,igualdade,igualdade2)
+
+
+
+
 def operacao_vetor(array,array2):
-    print('as operacoes:  + -  x ou escalar  ')
+    print('as operacoes:  soma,  subtração,  multiplicação  ')
     operacao=str(input('insira a operacão:  '))
     if operacao=="soma":
         soma=array + array2
@@ -378,4 +384,93 @@ def operacao_vetor(array,array2):
         subtracao=array-array2
         print(subtracao)
         
-operacao_vetor(array,array2)       
+#operacao_vetor(array,array2)       
+while True:
+    print('resolução de equações matriciais e operação de matrizes')
+    print('----------------------------------')
+    print('1 para a matrix 1')
+    print('2 para a matrix 2')
+    print('3 para a matrix 1 e 2')
+    print('m1 - para multiplicar o escalar com a matrix 1 ')
+    print('m2 - para multiplicar o escalar com a matrix 2 ')
+    print('ambas -  para multiplicar o escalar com a matrix 1 e 2')
+    print('----------------------------------')
+    comecar=str(input('vamos começar? s/n '))
+    if comecar=='n':
+        print('saindo')
+        break 
+    print('1 para a matrix 1')
+    print('2 para a matrix 2')
+    print('3 para a matrix 1 e 2')
+    opcao=int(input('qual matrix? '))
+    
+    
+    
+    if opcao==1:
+            gerar_matrix() 
+            igualdade_matrix()
+            equacao_linear(array,igualdade)
+            
+    elif opcao==2:
+            gerar_matrix2()
+            igualdade_matrix2()
+            equacao_linear2(array2,igualdade2)
+            
+    elif opcao==3:
+            gerar_matrix() 
+            igualdade_matrix()
+            gerar_matrix2()
+            igualdade_matrix2()
+            equacao_linear(array,igualdade)
+            equacao_linear2(array2,igualdade2)
+            operacao_vetor(array,array2)     
+            
+    
+    
+    
+    
+    continuar=str(input('vamos continuar? s/n '))
+    if continuar=='n':
+        print('saindo')
+        break 
+    opcao_escalar=str(input('deseja multiplicar por um escalar? s/n  '  ))
+    if opcao_escalar=='n':
+        print('saindo')
+        break 
+    
+    print('m1 - para multiplicar o escalar com a matrix 1 ')
+    print('m2 - para multiplicar o escalar com a matrix 2 ')
+    print('ambas -  para multiplicar o escalar com a matrix 1 e 2')
+    escalar=str(input('multiplicar qual matrix pelo escalar? '))
+    if escalar=="m1":
+            valor=float(input('digite o escalar: '))
+            multiplicacao=array*valor
+            print(multiplicacao)
+    elif escalar=="m2":
+            valor=float(input('digite o escalar: '))
+            multiplicacao=array2*valor
+            print(multiplicacao)
+    elif escalar=="ambas":
+            valor=float(input('digite o escalar: '))
+            multiplicacao=array*valor
+            valor2=float(input('digite o escalar: '))
+            multiplicacao2=array2*valor2
+            print(multiplicacao)
+            print(multiplicacao2)
+    
+             
+             
+           
+           
+    
+    
+    
+    
+    
+    
+            
+            
+            
+            
+        
+            
