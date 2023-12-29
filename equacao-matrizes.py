@@ -396,7 +396,7 @@ while True:
     print('ambas -  para multiplicar o escalar com a matrix 1 e 2')
     print('----------------------------------')
     comecar=str(input('vamos começar? s/n '))
-    if comecar=='n':
+    if comecar.lower()=='n':
         print('saindo')
         break 
     print('1 para a matrix 1')
@@ -430,11 +430,11 @@ while True:
     
     
     continuar=str(input('vamos continuar? s/n '))
-    if continuar=='n':
+    if continuar.lower()=='n':
         print('saindo')
         break 
     opcao_escalar=str(input('deseja multiplicar por um escalar? s/n  '  ))
-    if opcao_escalar=='n':
+    if opcao_escalar.lower()=='n':
         print('saindo')
         break 
     
